@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import axios,{setHeader} from '../axios';
+import axios from '../axios';
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { loginField,clearField } from '../redux/loginSlice';
@@ -18,11 +18,11 @@ function LoginForm(props) {
     e.preventDefault();
     
     axios.post('/login', { field }).then((response) => {
-      console.log(response)
+     
       if (response && response.data.token) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        dispatch(userLogin(response.data))
-        setHeader();
+        console.log(response.data.token)
+        localStorage.setItem('token', JSON.stringify(response.data.token));
+        dispatch(userLogin(response.data.token))
         navigate('/')
         dispatch(clearField())
       }

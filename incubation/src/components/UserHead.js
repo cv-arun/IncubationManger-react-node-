@@ -8,14 +8,14 @@ import {useNavigate} from 'react-router-dom';
 function UserHead() {
     const navigate=useNavigate();
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.user.user);
-    !user && navigate('/login');
+    const token = useSelector((state) => state.user.token);
+    !token && navigate('/login');
     useEffect(() => {
-        dispatch(userLogin(JSON.parse(localStorage.getItem('user'))))
+        dispatch(userLogin(JSON.parse(localStorage.getItem('token'))))
     }, [])
    
     const logout = () => {
-        localStorage.removeItem('user');
+        localStorage.removeItem('token');
         dispatch(userLogout());
         navigate('/login',{replace:true})
 
@@ -25,7 +25,6 @@ function UserHead() {
     return (
         <div className="d-flex justify-content-between bg-info " style={{ height: '6rem' }}>
             <h1 className="text-white my-auto">User Dashboard</h1>
-            <p className="text-white my-auto">welcome {user?user.name:''}</p>
            <Button className="my-auto" variant="primary" onClick={logout}>Logout</Button>
         </div>
     )

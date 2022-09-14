@@ -1,18 +1,12 @@
 import axios from 'axios';
 import { Base_url } from './constance'
 
-let user
-export const setHeader=()=>{
-
-  user = JSON.parse(localStorage.getItem('user'))
-}
-let auth = user ? user.token : '';
-console.log(auth, "auth")
+  let token = JSON.parse(localStorage.getItem('token'))
 
 const instance = axios.create({
   baseURL: Base_url,
   headers: {
-    'x-access-token': auth
+    'x-access-token': token?token:''
   }
 });
 

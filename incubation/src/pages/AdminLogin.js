@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from '../components/LoginForm'
+
 import AdminLogin from '../components/AdminLogin';
 
 function AdminLoginPage(){
     return (
-        <AdminLogin/>
+        <AdminLogin title={'Admin'}/>
     )
 }
 export default AdminLoginPage;

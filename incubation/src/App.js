@@ -11,6 +11,7 @@ import SignupPage from './pages/SignupForm';
 import UserLogin from './pages/UserLogin';
 import UserHome from './pages/UserHome'
 import AdminLoginPage from './pages/AdminLogin';
+import AdminHome from './pages/AdminHome';
 
 
 
@@ -20,12 +21,14 @@ function App() {
 
     <Container fluid>
       <Routes>
-        <Route exact path="/" element={<UserHome/>} />
+        <Route exact path="/" element={<UserHome />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<UserLogin />} />
-        
-        <Route path="/admin" element={<AdminLoginPage />} >
-        
+
+        <Route path="admin" >
+
+          <Route exact path="" element={<AdminHome />} />
+          <Route path="login" element={<AdminLoginPage />} />
         </Route>
       </Routes>
 
