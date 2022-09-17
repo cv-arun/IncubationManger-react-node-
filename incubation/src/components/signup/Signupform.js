@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React from 'react';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addField,clearField } from '../../redux/signupSlice';
 import axios from '../../axios'
@@ -53,6 +53,8 @@ function SignupForm() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+            <Form.Label> alredy have an account? </Form.Label>
+            <Link to='/login'>Login</Link>
         </Form>
     );
 }

@@ -1,7 +1,7 @@
 //import useState hook to create menu collapse state
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import './css/sideBar.css';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 //import react pro sidebar components
 import {
@@ -14,8 +14,8 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { GiNotebook} from "react-icons/gi";
-import { FaPhotoVideo} from "react-icons/fa";
+import { GiNotebook } from "react-icons/gi";
+import { FaPhotoVideo } from "react-icons/fa";
 
 import {
     FiHome,
@@ -24,8 +24,8 @@ import {
     FiArrowRightCircle
 } from "react-icons/fi";
 import { GoCalendar } from "react-icons/go";
-import { BiUser} from "react-icons/bi";
-import { MdOutlineCalendarViewMonth,MdPayment} from "react-icons/md";
+import { BiUser } from "react-icons/bi";
+import { MdOutlineCalendarViewMonth, MdPayment } from "react-icons/md";
 
 
 //import sidebar css from react-pro-sidebar module and our custom css
@@ -33,8 +33,8 @@ import "react-pro-sidebar/dist/css/styles.css";
 
 
 const SideBar = () => {
-   
-    const navigate=useNavigate();
+
+    const navigate = useNavigate();
     //create initial menuCollapse state using useState hook
     const [menuCollapse, setMenuCollapse] = useState(false);
 
@@ -43,10 +43,10 @@ const SideBar = () => {
         //condition checking to change state from true to false and vice versa
         menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
     };
-    useEffect(()=>{
-        let token=localStorage.getItem('token');
-        !token && navigate('login');
-    })
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        !token && navigate('/admin/login');
+    }, [])
 
     return (
         <>
@@ -63,18 +63,19 @@ const SideBar = () => {
                             {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
                         </div>
                     </SidebarHeader>
-                    <hr style={{background: 'white',
-                            height: '5px',
-                        }}
+                    <hr style={{
+                        background: 'white',
+                        height: '5px',
+                    }}
                     />
                     <SidebarContent>
                         <Menu iconShape="square">
                             <MenuItem active={true} icon={<FiHome />} >
                                 Home
                             </MenuItem>
-                            <MenuItem icon={<BiUser />}>Applicant List</MenuItem>
-                            <MenuItem icon={<MdOutlineCalendarViewMonth />}>Record Track</MenuItem>
-                            <MenuItem icon={<GiNotebook />}>Booking Slot</MenuItem>
+                            <MenuItem icon={<BiUser />} onClick={e => navigate('/admin/')}>Applicant List</MenuItem>
+                            <MenuItem icon={<MdOutlineCalendarViewMonth />} onClick={e => navigate('/admin/record')}>Record Track</MenuItem>
+                            <MenuItem icon={<GiNotebook />} onClick={e => navigate('/admin/slot')}>Booking Slot</MenuItem>
                             <MenuItem icon={<GoCalendar />}>Schedule events</MenuItem>
                             <MenuItem icon={<FaPhotoVideo />}>Video</MenuItem>
                             <MenuItem icon={<MdPayment />}>Payment</MenuItem>
@@ -82,9 +83,10 @@ const SideBar = () => {
                     </SidebarContent>
                     <SidebarFooter>
                         <Menu iconShape="square">
-                            <MenuItem icon={<FiLogOut />} onClick={e=>{
+                            <MenuItem icon={<FiLogOut />} onClick={e => {
                                 localStorage.removeItem('token');
-                                navigate('login')}}>Logout</MenuItem>
+                                navigate('login')
+                            }}>Logout</MenuItem>
                         </Menu>
                     </SidebarFooter>
                 </ProSidebar>

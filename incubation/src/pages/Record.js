@@ -1,19 +1,18 @@
 import React, { Fragment } from "react";
 import AdminHeader from "../components/AdminHeader";
 import SideBar from "../components/SideBar";
-import Table from "../components/Table";
+import RecordTable from "../components/RecordList";
 
 
-function AdminHome() {
+
+function RecordPage() {
     return (
         <Fragment>
 
             <SideBar />
             <AdminHeader />
-            <div className="mx-auto">
-               
-                <Table title={'New application List'} />
-                <Table title={'Pending application List'} />
+            <div className="ms-auto w-75">
+            <RecordTable/>
             </div>
 
         </Fragment>
@@ -21,4 +20,4 @@ function AdminHome() {
     )
 }
 
-export default AdminHome
+export default RecordPage

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from '../axios';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { loginField,clearField } from '../redux/loginSlice';
 import { userLogin } from '../redux/userSlice';
@@ -56,6 +56,9 @@ function LoginForm(props) {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <Form.Label> Don't have an account? </Form.Label>
+            <Link to='/signup'>Signup</Link>
+            
     </Form>
   );
 }

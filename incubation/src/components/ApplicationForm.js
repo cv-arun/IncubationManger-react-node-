@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
 import axios from "../axios";
-import { handleForm } from '../hooks/handleForm'
+import { handleForm } from '../hooks/handleForm';
+import {useNavigate} from 'react-router-dom'
 
 
 function ApplicationForm() {
@@ -12,6 +13,7 @@ function ApplicationForm() {
     const [message, setMessage] = useState('')
     const [pdf, setPdf] = useState('');
     const [image, setImage] = useState('');
+    const navigate=useNavigate()
     const Data = { ...data }
     const formData = new FormData();
     formData.append("pdf", pdf)
@@ -28,6 +30,8 @@ function ApplicationForm() {
             response.data && response.data.response._id ? setMessage(response.data.response._id) : setMessage('');
             clearData();
 
+        }).catch((err)=>{
+            err.response.data.message && navigate('/login')
         })
     }
     return (
@@ -76,7 +80,7 @@ function ApplicationForm() {
                     <Col sm md={4} >
                         <Form.Group className="mb-3" controlId="1">
                             <Form.Label>Describe your team and Background</Form.Label>
-                            <Form.Control as='textarea' placeholder="" name="field9" onChange={(e) => setData(e)} />
+                            <Form.Control as='textarea' placeholder="" name="companyDetails" onChange={(e) => setData(e)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="3">
                             <Form.Label>Describe your company and product</Form.Label>

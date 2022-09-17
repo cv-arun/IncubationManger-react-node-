@@ -30,7 +30,7 @@ router.post('/application', verify, (req, res, next) => {
         console.log('success')
 
         res.json({ response})
-    })
+    }).catch(err=>res.json(err))
 
 
 

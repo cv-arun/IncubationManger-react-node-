@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const ApplicationShema = new mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.ObjectId
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User'
     },
     Name:String,
     Address:String,
@@ -11,7 +12,7 @@ const ApplicationShema = new mongoose.Schema({
     Email:String,
     Phone:String,
     Company:String,
-    field9:String,
+    companyDetails:String,
     field10:String,
     field11:String,
     field12:String,
@@ -21,6 +22,12 @@ const ApplicationShema = new mongoose.Schema({
     field16:String,
     field17:String,
     field18:String,
+    approve:{
+        types:Boolean,
+        default:false
+    }
+},{
+    timestamps:true
 })
 
 module.exports = mongoose.model('Application', ApplicationShema)
