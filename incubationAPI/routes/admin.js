@@ -5,6 +5,8 @@ const adminControll=require('../controller/adminController')
 
 router.post('/login',adminControll.login)
 router.get('/applicationDetails',adminControll.getApplication)
+router.post('/getApplicationData',adminControll.getApplicationData)
+router.post('/updateProcess',adminControll.updateProcess)
 
 
 

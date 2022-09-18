@@ -70,10 +70,10 @@ const SideBar = () => {
                     />
                     <SidebarContent>
                         <Menu iconShape="square">
-                            <MenuItem active={true} icon={<FiHome />} >
+                            <MenuItem active={true} icon={<FiHome />} onClick={e => navigate('/admin/')}>
                                 Home
                             </MenuItem>
-                            <MenuItem icon={<BiUser />} onClick={e => navigate('/admin/')}>Applicant List</MenuItem>
+                            <MenuItem icon={<BiUser />} onClick={e => navigate('/admin/application')}>Applicant List</MenuItem>
                             <MenuItem icon={<MdOutlineCalendarViewMonth />} onClick={e => navigate('/admin/record')}>Record Track</MenuItem>
                             <MenuItem icon={<GiNotebook />} onClick={e => navigate('/admin/slot')}>Booking Slot</MenuItem>
                             <MenuItem icon={<GoCalendar />}>Schedule events</MenuItem>
@@ -85,7 +85,7 @@ const SideBar = () => {
                         <Menu iconShape="square">
                             <MenuItem icon={<FiLogOut />} onClick={e => {
                                 localStorage.removeItem('token');
-                                navigate('login')
+                                navigate('/admin/login')
                             }}>Logout</MenuItem>
                         </Menu>
                     </SidebarFooter>

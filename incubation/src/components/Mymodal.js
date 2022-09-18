@@ -20,13 +20,14 @@ function MyModal(props) {
     }
     return (
         <>
-            <Button style={{ width: 90, height: 90, backgroundColor: "orange" }} onClick={handleShow}>
-
+            <Button  style={{ width: 90, height: 90, backgroundColor: "orange" }} onClick={handleShow}>
+                {props.id}
             </Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal key={props.id+'mb'} show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Choose company</Modal.Title>
+                    <Modal.Title>Choose company{props.id}</Modal.Title>
+
                 </Modal.Header>
                 <Modal.Body>
                     <Select

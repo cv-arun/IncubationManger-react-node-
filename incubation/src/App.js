@@ -14,6 +14,8 @@ import AdminLoginPage from './pages/AdminLogin';
 import RecordPage from './pages/Record';
 import SlotBookingPage from './pages/SlotBookingPage';
 import Application from './pages/Application';
+import AdminHome from './pages/AdminHome';
+import ViewApplication from './pages/ViewApplication';
 
 
 
@@ -29,7 +31,9 @@ function App() {
 
         <Route  >
 
-          <Route path="/admin" element={<Application />} />
+          <Route path="/admin" element={<AdminHome />} />
+          <Route path="admin/application/view" element={<ViewApplication />} />
+          <Route path="admin/application" element={<Application />} />
           <Route path="admin/login" element={<AdminLoginPage />} />
           <Route path="admin/record" element={<RecordPage />} />
           <Route path="admin/slot" element={<SlotBookingPage />} />

@@ -22,8 +22,13 @@ const ApplicationShema = new mongoose.Schema({
     field16:String,
     field17:String,
     field18:String,
+    slot:String,
     approve:{
-        types:Boolean,
+        type:String,
+        default:'Pending'
+    },
+    opened:{
+        type:Boolean,
         default:false
     }
 },{

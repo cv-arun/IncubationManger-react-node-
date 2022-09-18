@@ -43,7 +43,7 @@ function ApplicationForm() {
                     <Col sm md={3}>
                         <Form.Group className="mb-3" controlId="Name">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter name" name="Name" onChange={(e) => setData(e)} />
+                            <Form.Control type="text" placeholder="Enter name" name="Name"  onChange={(e) => setData(e)} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="Address">
                             <Form.Label>Address</Form.Label>

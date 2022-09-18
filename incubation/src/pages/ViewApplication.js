@@ -1,18 +1,22 @@
 import React, { Fragment } from "react";
 import AdminHeader from "../components/AdminHeader";
-import SideBar from "../components/SideBar";
+
+import ViewApplicationForm from "../components/ViewApplication";
 
 
 
-function AdminHome() {
+
+function ViewApplication() {
+
+
+
     return (
         <Fragment>
 
-            <SideBar />
+           
             <AdminHeader />
             <div className="mx-auto">
-               
-              
+                <ViewApplicationForm />
             </div>
 
         </Fragment>
@@ -20,4 +24,4 @@ function AdminHome() {
     )
 }
 
-export default AdminHome
+export default ViewApplication;
