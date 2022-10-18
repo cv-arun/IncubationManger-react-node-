@@ -1,4 +1,4 @@
-const { response } = require('express');
+
 const express = require('express')
 const router = express.Router();
 const userHelper = require('../helper/userHelper');
@@ -13,7 +13,7 @@ router.post('/signup', (req, res, next) => {
 })
 router.post('/login', (req, res, next) => {
     userHelper.dologin(req.body).then((response) => {
-        console.log(response)
+
         if (response.token) {
             res.json(response)
         } else {
@@ -29,10 +29,17 @@ router.post('/application', verify, (req, res, next) => {
     userHelper.saveApplication(req.body).then((response) => {
         console.log('success')
 
-        res.json({ response})
-    }).catch(err=>res.json(err))
+        res.json({ response })
+    }).catch(err => res.json(err))
 
 
+
+})
+router.get('/applicationStatus', verify, (req, res, next) => {
+   
+    userHelper.getappllicationStatus(req.userId).then(data => {
+        res.json({ applicationData: data })
+    }).catch(err => res.json(err))
 
 })
 

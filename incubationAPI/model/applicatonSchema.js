@@ -30,7 +30,8 @@ const ApplicationShema = new mongoose.Schema({
     opened:{
         type:Boolean,
         default:false
-    }
+    },
+    slot:String
 },{
     timestamps:true
 })

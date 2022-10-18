@@ -27,25 +27,25 @@ function SignupForm() {
             <Form.Group className="mb-3" controlId="Email">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" name='email'
-                    requiredtype="text" onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} />
+                    requiredtype="text" onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} required/>
 
             </Form.Group>
             <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter name" name='fname'
-                    onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} />
+                    onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} required/>
 
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label> Company Name </Form.Label>
                 <Form.Control type="text" placeholder="Enter company name" name='companyName'
-                    onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} />
+                    onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} required/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="Password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" name='password'
-                    onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} />
+                    onChange={(e) => dispatch(addField({ key: e.target.name, value: e.target.value }))} required/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="accept terms and condetions" />

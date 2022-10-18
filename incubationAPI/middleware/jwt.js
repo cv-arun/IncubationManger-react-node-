@@ -6,7 +6,7 @@ const verify = (req, res, next) => {
     if (!token) {
         return res.status(403).send({ message: "No token provided!" });
     }
-
+    console.log(token, 'token')
     jwt.verify(token, process.env.TOKEN_KEY, (err, decoded) => {
         if (err) {
             return res.status(401).send({ message: "Unauthorized!" });
@@ -15,7 +15,7 @@ const verify = (req, res, next) => {
         req.userId = decoded.userId
         next();
     });
-   
+
 
 
 }

@@ -8,18 +8,25 @@ const userHelper = {
 
     doSignup: ({ field }) => {
         return new Promise(async (resolve, reject) => {
-            field.password = await bcrypt.hash(field.password, 10)
+            let user = await userModel.findOne({ email: field.email })
+            if (!user) {
+                field.password = await bcrypt.hash(field.password, 10)
 
-            userModel.create(field
-            ).then((response) => {
-                const user = {
-                    userId: response._id,
-                    name: response.fname
-                }
-                
-                console.log(user)
-                resolve(user)
-            }).catch(err => reject(err))
+                userModel.create(field
+                ).then((response) => {
+                    const user = {
+                        userId: response._id,
+                        name: response.fname
+                    }
+
+                    console.log(user)
+                    resolve(user)
+                }).catch(err => reject(err))
+            }else{
+                resolve({msg:'user Alredy Exist'})
+            }
+
+
         })
 
     },
@@ -41,7 +48,8 @@ const userHelper = {
                             const token = jwt.sign(
                                 {
                                     userId: userData._id,
-                                    name: userData.fname
+                                    name: userData.fname,
+                                    email:userData.email
                                 },
                                 process.env.TOKEN_KEY,
                                 {
@@ -65,13 +73,21 @@ const userHelper = {
         })
 
     },
-    saveApplication:(data)=>{
+    saveApplication: (data) => {
         console.log(data)
-        return new Promise((resolve,reject)=>{
-            applicationModel.create(data).then((rsponse)=>{
+        return new Promise((resolve, reject) => {
+            applicationModel.create(data).then((rsponse) => {
                 resolve(rsponse)
-            }).catch(err=>reject(err))
+            }).catch(err => reject(err))
         })
+    },
+    getappllicationStatus: (id) => {
+        return new Promise((resolve, reject) => {
+            applicationModel.find({ user: id }).then(data => {
+                resolve(data)
+            }).catch(err => reject(err))
+        })
+
     }
 }
 

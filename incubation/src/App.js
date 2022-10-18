@@ -16,6 +16,8 @@ import SlotBookingPage from './pages/SlotBookingPage';
 import Application from './pages/Application';
 import AdminHome from './pages/AdminHome';
 import ViewApplication from './pages/ViewApplication';
+import ApplicationStatus from './pages/UserAppllicationStatus';
+import UserDetails from './pages/UserDetails';
 
 
 
@@ -28,6 +30,7 @@ function App() {
         <Route exact path="/" element={<UserHome />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<UserLogin />} />
+        <Route path="/status" element={<ApplicationStatus />} />
 
         <Route  >
 
@@ -37,6 +40,7 @@ function App() {
           <Route path="admin/login" element={<AdminLoginPage />} />
           <Route path="admin/record" element={<RecordPage />} />
           <Route path="admin/slot" element={<SlotBookingPage />} />
+          <Route path="admin/users" element={<UserDetails />} />
 
         </Route>
       </Routes>

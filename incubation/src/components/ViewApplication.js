@@ -27,7 +27,7 @@ function ViewApplicationForm() {
 
             <Form>
                 <Row className="mt-5 border border-info m-5 p-5" >
-                    <h3 className="text-center mb-5">Application form</h3>
+                    <h3 className="text-center mb-5">Application Details</h3>
                     <Col sm md={3}>
                         <Form.Group className="mb-3" controlId="Name">
                             <Form.Label>Name</Form.Label>

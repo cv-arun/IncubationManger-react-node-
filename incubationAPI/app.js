@@ -36,7 +36,7 @@ mongoose.connect(process.env.mongoURL).then((res) => {
 
 
 app.use((req,res,next)=>{
-  console.log('call rexchd')
+  console.log('call reached')
   next()
 })
 

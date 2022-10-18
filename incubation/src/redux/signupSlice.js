@@ -17,7 +17,12 @@ export const signupSlice = createSlice({
             state.form = { ...state.form, [action.payload.key]: action.payload.value }
         },
         clearField: (state, action) => {
-            state.form = ""
+            state.form = {
+                fname: '',
+                email: '',
+                companyName: '',
+                password: ''
+            }
         },
 
     },

@@ -1,3 +1,4 @@
+const { response } = require('express');
 const adminHelper = require('../helper/adminHelper');
 
 
@@ -34,5 +35,37 @@ module.exports = {
         }).catch(err => res.json(err))
 
 
+    },
+    slotBookinDetails: (req, res, next) => {
+        adminHelper.getApprovedCompanies().then(response => {
+            console.log(response)
+            res.json({ response })
+        })
+    },
+    bookSlot: (req, res, next) => {
+        console.log(req.body)
+        adminHelper.bookSlot(req.body).then(response => {
+
+            res.json(response)
+        })
+    },
+    getOneApplication: (req, res, next) => {
+        adminHelper.getOneApplication(req.body).then(response => {
+            console.log(response)
+            res.json(response)
+        }).catch(err => res.json(err))
+    },
+    getUsers: (req, res, next) => {
+        adminHelper.getUsers().then(response => {
+            res.json(response)
+        }).catch(err => res.json(err))
+    },
+    editUsers: (req, res, next) => {
+        console.log(req.body.field)
+        adminHelper.editUser(req.body.field).then(response=>{
+            console.log(response,"----------")
+            res.json(response)
+        }).catch(err=>res.json(err))
     }
+
 }

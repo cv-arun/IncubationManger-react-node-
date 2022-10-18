@@ -12,7 +12,7 @@ function RecordPage() {
             <SideBar />
             <AdminHeader />
             <div className="ms-auto w-75">
-            <RecordTable/>
+                <RecordTable admin={true} />
             </div>
 
         </Fragment>

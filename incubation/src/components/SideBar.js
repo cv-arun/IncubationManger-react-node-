@@ -16,6 +16,7 @@ import {
 //import icons from react icons
 import { GiNotebook } from "react-icons/gi";
 import { FaPhotoVideo } from "react-icons/fa";
+import { RiUserSearchLine } from "react-icons/ri";
 
 import {
     FiHome,
@@ -23,7 +24,7 @@ import {
     FiArrowLeftCircle,
     FiArrowRightCircle
 } from "react-icons/fi";
-import { GoCalendar } from "react-icons/go";
+
 import { BiUser } from "react-icons/bi";
 import { MdOutlineCalendarViewMonth, MdPayment } from "react-icons/md";
 
@@ -56,7 +57,8 @@ const SideBar = () => {
                     <SidebarHeader>
                         <div className="logotext">
                             {/* small and big change using menucollapse state */}
-                            <p>{menuCollapse ? "Logo" : "Big Logo"}</p>
+                            <p>{menuCollapse ? <img style={{ width: '3rem' }} src="https://in.top10place.com/img_files/1239901936055580" /> : <img style={{ width: '12rem' }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStVne1gX-CGHTF3pmdgrjSX1kaQDChX90wOQ&usqp=CAU" />}</p>
+
                         </div>
                         <div className="closemenu" onClick={menuIconClick}>
                             {/* changing menu collapse icon on click */}
@@ -70,15 +72,15 @@ const SideBar = () => {
                     />
                     <SidebarContent>
                         <Menu iconShape="square">
-                            <MenuItem active={true} icon={<FiHome />} onClick={e => navigate('/admin/')}>
+                            <MenuItem icon={<FiHome />} onClick={e => { navigate('/admin/') }}>
                                 Home
                             </MenuItem>
                             <MenuItem icon={<BiUser />} onClick={e => navigate('/admin/application')}>Applicant List</MenuItem>
                             <MenuItem icon={<MdOutlineCalendarViewMonth />} onClick={e => navigate('/admin/record')}>Record Track</MenuItem>
                             <MenuItem icon={<GiNotebook />} onClick={e => navigate('/admin/slot')}>Booking Slot</MenuItem>
-                            <MenuItem icon={<GoCalendar />}>Schedule events</MenuItem>
-                            <MenuItem icon={<FaPhotoVideo />}>Video</MenuItem>
-                            <MenuItem icon={<MdPayment />}>Payment</MenuItem>
+                            <MenuItem icon={<RiUserSearchLine />} onClick={e => navigate('/admin/users')}>Users</MenuItem>
+                            {/* <MenuItem icon={<FaPhotoVideo />}>Video</MenuItem>
+                            <MenuItem icon={<MdPayment />}>Payment</MenuItem> */}
                         </Menu>
                     </SidebarContent>
                     <SidebarFooter>
